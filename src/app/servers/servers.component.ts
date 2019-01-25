@@ -12,7 +12,7 @@ export class ServersComponent implements OnInit {
   serverCreateStatus = "Server not created.";
   serverCreated = false;
   serverName = "";
-  domainName: string = "Figuerroa.com";
+  domainName: string = "Server Dashboard";
   servers = ['testserver', 'testserver 2'];
 
   constructor() { 
