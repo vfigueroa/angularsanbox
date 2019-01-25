@@ -9,10 +9,11 @@ import { FormsModule } from '@angular/forms';
 })
 export class ServersComponent implements OnInit {
   allowNewServer = false;
-  serverCreateStatus = "No server created.";
-  checkStr = "";
+  serverCreateStatus = "Server not created.";
   serverCreated = false;
-  // re = new RegExp("-?\\d+");
+  serverName = "";
+  domainName: string = "Figuerroa.com";
+  servers = ['testserver', 'testserver 2'];
 
   constructor() { 
     setTimeout(() => {
@@ -26,8 +27,8 @@ export class ServersComponent implements OnInit {
 
   onCreateServer() {
     this.serverCreated = true;
-    return this.serverCreateStatus = "Server " + this.checkStr + " created successfully!";
-
+    this.servers.push(this.serverName);
+    return this.serverCreateStatus = "Server created successfully! Name is " + this.serverName + ".";
   }
 
   /**
@@ -35,7 +36,7 @@ export class ServersComponent implements OnInit {
    * @param $event 
    */
   onUpdateServerName($event: any) {
-    let str =  this.checkStr = $event.target.value;
+    let str =  this.serverName = $event.target.value;
 
     return this.disableOrEnableServerBtn(str);
 
@@ -68,6 +69,10 @@ export class ServersComponent implements OnInit {
     var re = new RegExp("-?\\d+");
 
     return re.test(str);
+  }
+
+  renderFullName () {
+    return this.domainName;
   }
 
 }

@@ -1,1 +1,1 @@
-<h1>{{ renderFullName() }}!</h1>
+<p [ngStyle]="{backgroundColor: getColor()}" [ngClass]="{online: serverStatus === 'online'}">Server with ID number {{ serverId }} was created and is {{ getServerStatus() }}.</p>

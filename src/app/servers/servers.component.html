@@ -1,9 +1,8 @@
+<h1>{{ renderFullName() }}!</h1>
 <input
     type="text"
     class="form-control"
     (input)="onUpdateServerName($event)">
-
-<!-- <p>{{ serverName }}</p> -->
 
 <p>
     <button 
@@ -11,6 +10,5 @@
         [disabled]="!allowNewServer"
         (click)="onCreateServer()">Add Server</button>
 </p>
-<p *ngIf="serverCreated">
-    {{ serverCreateStatus }}
-</p>
+<p>{{ serverCreateStatus }}</p>
+<app-server *ngFor="let server of servers"></app-server>
